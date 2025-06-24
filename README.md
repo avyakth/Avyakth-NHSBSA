@@ -18,3 +18,7 @@ Logs: target/NextGen_BDDResults/LatestResults/Reports_<date>/Logs/NhsbsaRunner_C
 
 ## Feature File Path
 NextGenBDD/src/test/java/com/nhsbsa/features/nhs_job_search.feature
+
+## Mail Configuration
+To auto trigger test reports to recepients, please add recepients emailid to MailTo property in Properties/DefaultConfig.properties. 
+For example: MailTo=Kamatchi.Jeyashree-Murugan@nhsbsa.nhs.uk,
