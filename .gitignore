@@ -1,11 +1,4 @@
-*/.classpath
-*/.project
-*.class */bin/
-/target/
-/test-output/
-/test-output-thread/
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Eclipse/STS/VScode project files
+.classpath
+.project
+.settings/
