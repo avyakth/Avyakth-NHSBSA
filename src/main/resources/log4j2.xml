@@ -1,0 +1,36 @@
+<Configuration status="WARN">
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} - %msg%n"/>
+    </Console>
+    <Routing name="RoutingAppender">
+      <Routes pattern="${ctx:logFilename}">
+        <Route>
+          <RollingFile name="Rolling-${logFilename}"
+                       fileName="${ctx:logFilename}.log"
+                       filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz"
+                       append="false">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="100 MB"/>
+          </RollingFile>
+        </Route>
+      </Routes>
+    </Routing>
+  </Appenders>
+
+  <Loggers>
+    <!-- suppress the socket-reset warnings from Selenium’s WebSocket listener -->
+    <Logger name="org.openqa.selenium.remote.http.WebSocket$Listener"
+            level="error"
+            additivity="false">
+      <AppenderRef ref="Console"/>
+    </Logger>
+
+    <Root level="info">
+      <AppenderRef ref="RoutingAppender"/>
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

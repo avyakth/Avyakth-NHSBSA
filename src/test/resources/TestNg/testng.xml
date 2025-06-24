@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite thread-count="10" name="NHS Jobs Search Suite" parallel="tests">
+       <listeners>
+              <listener class-name="com.nhsbsa.util.ITestListenerImpl"/> 
+              <listener class-name="com.nhsbsa.runner.AnnotationTransformer"/>
+       </listeners>
+
+     <test name="Chrome_Test">
+              <parameter name="browser" value="chrome" />
+              <classes>
+                     <class name="com.nhsbsa.runner.NhsbsaRunner">
+                         <parameter name="positionx" value="0" />
+                           <parameter name="positiony" value="0" />
+                     </class>
+              </classes>
+       </test>
+       
+ <test name="Firefox_Test">
+              <parameter name="browser" value="firefox" />
+              <classes>
+                     <class name="com.nhsbsa.runner.NhsbsaRunner">
+                         <parameter name="positionx" value="0" />
+                           <parameter name="positiony" value="0" />
+                     </class>
+              </classes>
+       </test>
+</suite>
